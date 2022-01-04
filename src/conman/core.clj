@@ -48,7 +48,7 @@
                fns   false}
               (group-by
                 #(-> % second :meta :snip? boolean)
-                (hugsql/map-of-db-fns file options))]
+                (hugsql/map-of-sqlvec-fns file options))]
           (-> queries
               (update :snips (fnil into {}) (mapv try-snip snips))
               (update :fns (fnil into {}) (mapv try-query fns)))))
